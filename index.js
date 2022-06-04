@@ -8,7 +8,31 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (data,pos) => {
+  if( typeof pos !== 'undefined' ) {
+    for (let i = 0; i < data.length; i++) {
+        if (pos === i) {
+          let epoch = new Date(data[i]).getTime() / 1000
+          return epoch.toString();
+        }
+    }
+  } else {
+  let temp = "";
+  let arr = [];
+   for (let i = 0; i < data.length; i++) {
+      arr.push(data[i])
+   }
+   arr.sort()
+   for (let i = 0; i < arr.length; i++) {
+    if (i === arr.length -1) {
+      temp += new Date(arr[i]).getTime() / 1000
+    } else {
+      temp += new Date(arr[i]).getTime() / 1000 + "-";
+    }
+   }
+  return temp;
+  }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
